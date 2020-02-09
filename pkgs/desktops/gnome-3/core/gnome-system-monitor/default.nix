@@ -1,21 +1,20 @@
-{ stdenv, gettext, fetchurl, pkgconfig, gtkmm3, libxml2, polkit
+{ stdenv, gettext, fetchurl, pkgconfig, gtkmm3, libxml2
 , bash, gtk3, glib, wrapGAppsHook, meson, ninja, python3
 , gsettings-desktop-schemas, itstool, gnome3, librsvg, gdk-pixbuf, libgtop, systemd }:
 
 stdenv.mkDerivation rec {
   pname = "gnome-system-monitor";
-  version = "3.32.1";
+  version = "3.35.92";
 
   src = fetchurl {
     url = "mirror://gnome/sources/gnome-system-monitor/${stdenv.lib.versions.majorMinor version}/${pname}-${version}.tar.xz";
-    sha256 = "1wd43qdgjav6xamq5z5cy8fri5zr01jga3plc9w95gcia0rk3ha8";
+    sha256 = "1fzyyk602ijdl1v76y8xdd0ly88brmhm23mviyhlrg1kzs80p7qy";
   };
 
   doCheck = true;
 
   nativeBuildInputs = [
     pkgconfig gettext itstool wrapGAppsHook meson ninja python3
-    polkit # for ITS file
   ];
   buildInputs = [
     bash gtk3 glib libxml2 gtkmm3 libgtop gdk-pixbuf gnome3.adwaita-icon-theme librsvg
