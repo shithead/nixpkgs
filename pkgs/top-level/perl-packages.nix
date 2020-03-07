@@ -3360,6 +3360,21 @@ let
      };
   };
 
+  CouchDBClient = buildPerlPackage rec {
+    pname = "CouchDB-Client";
+    version = "0.09";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/M/MA/MAVERICK/${pname}-${version}.tar.gz";
+      sha256 = "3485ed32ff5906690415c27dd9d1fea2ef7f2967659ae9f254bd7ced602ef322";
+    };
+    propagatedBuildInputs = [ HTTPMessage JSONAny LWP URI ];
+    meta = {
+      homepage = http://github.com/maverick/couchdb-client;
+      description = "Simple, correct client for CouchDB";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   CPAN = buildPerlPackage {
     pname = "CPAN";
     version = "2.27";
@@ -6494,6 +6509,21 @@ let
     };
   };
 
+  EventJoin = buildPerlPackage rec {
+    pname = "Event-Join";
+    version = "0.06";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/J/JR/JROCKWAY/${pname}-${version}.tar.gz";
+      sha256 = "a8202215d11c20a7906286bd8d2337d3f0b5ae6b41370d2ba00b9b8d15b8ff3c";
+    };
+    buildInputs = [ TestException TestSimple ];
+    propagatedBuildInputs = [ Moose ];
+    meta = {
+      description = "Join multiple "events" into one";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   ExceptionBase = buildPerlModule {
     pname = "Exception-Base";
     version = "0.2501";
@@ -10196,7 +10226,6 @@ let
     };
     meta = {
       description = "Stop words for several languages";
-      license = stdenv.lib.licenses.unknown;
     };
   };
   
@@ -11160,6 +11189,19 @@ let
     };
   };
 
+  MathCephes = buildPerlPackage rec {
+    pname = "Math-Cephes";
+    version = "0.5305";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/S/SH/SHLOMIF/${pname}-${version}.tar.gz";
+      sha256 = "561a800a4822e748d2befc366baa4b21e879a40cc00c22293c7b8736caeb83a1";
+    };
+    meta = {
+      description = "Perl interface to the math cephes library";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   MathLibm = buildPerlPackage {
     pname = "Math-Libm";
     version = "1.00";
@@ -12529,7 +12571,22 @@ let
       license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
     };
   };
-
+  
+  MooseXTypesSignal = buildPerlPackage rec {
+    pname = "MooseX-Types-Signal";
+    version = "1.101932";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/J/JR/JROCKWAY/${pname}-${version}.tar.gz";
+      sha256 = "ab0e3714a8876b56429108f761833b3a5da1c73c045d598b34eeb5fd8cf4c3ec";
+    };
+    buildInputs = [ Moose TestException ];
+    propagatedBuildInputs = [ MooseXTypes ];
+    meta = {
+      description = "A type to represent valid UNIX or Perl signals";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   MooX = buildPerlPackage {
     pname = "MooX";
     version = "0.101";
@@ -16216,7 +16273,6 @@ let
     };
     propagatedBuildInputs = [ MLDBM ];
     meta = {
-      license = stdenv.lib.licenses.unknown;
     };
   };
  
@@ -16791,7 +16847,14 @@ let
       url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "8263fd394e46e724691c8e2d043c19c96f1c12c868ea882e810345435365bca3";
     };
-    meta = {
+  };
+  
+  StatisticsMVA = buildPerlPackage {
+    pname = "Statistics-MVA";
+    version = "0.0.2";
+    src = fetchurl {
+      url = mirror://cpan/authors/id/D/DS/DSTH/Statistics-MVA-0.0.2.tar.gz;
+      sha256 = "8e61dd269b2317c8246b7a74913d5afbb6edb186eadf20e42ce9c1ba4b8ab5d8";
     };
   };
   
@@ -16805,18 +16868,15 @@ let
     propagatedBuildInputs = [ MathCephes StatisticsMVA TextSimpleTable ];
     meta = {
       description = "Two-Sample Linear Discrimination Analysis with Posterior Probability Calculation";
-      license = stdenv.lib.licenses.unknown;
     };
   };
   
     StatisticsMVAHotellingTwoSample = buildPerlPackage rec {
     pname = "Statistics-MVA-HotellingTwoSample";
-    versin = "0.0.2";
+    version = "0.0.2";
     src = fetchurl {
       url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "ba648be7268ab18723a27079c5a6f7367aec04b6991b24d239c5733c96d4cea9";
-    };
-    meta = {
     };
   };
   
@@ -16852,7 +16912,6 @@ let
     propagatedBuildInputs = [ CouchDBClient ];
     meta = {
       description = "Persistences for Perl data structures in Apache CouchDB";
-      license = stdenv.lib.licenses.unknown;
     };
   };
   
@@ -17436,7 +17495,6 @@ let
     propagatedBuildInputs = [ FileWhich LWP LogLog4perl TermReadKey ];
     meta = {
       description = "Typical installation tasks for system administrators";
-      license = stdenv.lib.licenses.unknown;
     };
   };
   
