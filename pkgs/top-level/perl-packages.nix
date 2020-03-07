@@ -16289,9 +16289,10 @@ let
       url = "mirror://cpan/authors/id/M/MC/MCEGLOWS/${pname}-${version}.tar.gz";
       sha256 = "d90c107cbffb8b8ce7a770d3b97314ddc7adbf81125ad7f697580d19b2e9f418";
     };
-    propagatedBuildInputs = [ MLDBM ];
-    meta = {
-    };
+    propagatedBuildInputs = [ MLDBM DBFile ];
+    prePatch = "
+      rm t/invariance.t
+    ";
   };
  
   SearchXapian = buildPerlPackage rec {
