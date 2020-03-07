@@ -85,9 +85,10 @@ let
   makeFullPerlPath = deps: makePerlPath (stdenv.lib.misc.closePropagation deps);
 
   AIMicroStructure = buildPerlPackage rec {
-    name = "AI-MicroStructure-0.20";
+    pname = "AI-MicroStructure";
+    version = "0.20";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/S/SA/SANTEX/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/S/SA/SANTEX/${pname}-${version}.tar.gz";
       sha256 = "bb9d056fdddddb669fa501ae7325f709175ef565b5e592fe0b51ca608b6fd05e";
     };
     propagatedBuildInputs = [ AICategorizer AlgorithmBaumWelch AnyEventSubprocess CacheMemcachedFast ClassContainer ConfigAuto DataPrinter DigestSHA1 FileHomeDir HTMLSimpleLinkExtor HTMLStrip HTTPMessage IOAsync JSON JSONXS LWP LinguaStopWords Mojolicious NetAsyncWebSocket ParallelIterator ParamsValidate SearchContextGraph StatisticsBasic StatisticsContingency StatisticsDescriptive StatisticsDistributionsAncova StatisticsMVABayesianDiscrimination StatisticsMVAHotellingTwoSample StorableCouchDB SysadmInstall ];
@@ -99,9 +100,10 @@ let
   };
 
   AICategorizer = buildPerlPackage rec {
-    name = "AI-Categorizer-0.09";
+    pname = "AI-Categorizer";
+    version = "0.09";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/K/KW/KWILLIAMS/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/K/KW/KWILLIAMS/${pname}-${version}.tar.gz";
       sha256 = "24d8adec512e7be76e99c224b60205a164a14d8889557b6876c9b6e8ef8f8590";
     };
     buildInputs = [ ModuleBuild ];
@@ -151,9 +153,10 @@ let
   };
 
   AlgorithmBaumWelch = buildPerlPackage rec {
-    name = "Algorithm-BaumWelch-v0.0.2";
+    pname = "Algorithm-BaumWelch";
+    version = "v0.0.2";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "78c22a2b93f13017d797f6f6858eb2f5c54c42ffed8741426299aa4d1157dbb9";
     };
     buildInputs = [ ModuleBuild ];
@@ -253,9 +256,10 @@ let
   };
 
   AnyEventSubprocess = buildPerlPackage rec {
-    name = "AnyEvent-Subprocess-1.102912";
+    pname = "AnyEvent-Subprocess";
+    version = "1.102912";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/J/JR/JROCKWAY/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/J/JR/JROCKWAY/${pname}-${version}.tar.gz";
       sha256 = "a14490710b093644333bdbf7477f4ae58f3bf4553a554bdcde7936ca4c7e53f5";
     };
     buildInputs = [ TestException TestSimple ];
@@ -2960,9 +2964,10 @@ let
   };
 
   ConfigAuto = buildPerlPackage rec {
-    name = "Config-Auto-0.44";
+    pname = "Config-Auto";
+    version = "0.44";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/B/BI/BINGOS/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/B/BI/BINGOS/${pname}-${version}.tar.gz";
       sha256 = "e960e04df995852aba275cf83ac6f947e44a4139de156858c01f0cec7f7ab53f";
     };
     propagatedBuildInputs = [ ConfigIniFiles IOString YAML ];
@@ -8559,9 +8564,10 @@ let
   };
   
   HTMLSimpleLinkExtor = buildPerlPackage rec {
-    name = "HTML-SimpleLinkExtor-1.272";
+    pname = "HTML-SimpleLinkExtor";
+    version = "1.272";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/B/BD/BDFOY/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/B/BD/BDFOY/${pname}-${version}.tar.gz";
       sha256 = "502cf53992edaa0e164d7d3bdb37a745891e7225f79dfaf17a92c635ff4598c7";
     };
     buildInputs = [ TestOutput ];
@@ -8574,9 +8580,10 @@ let
   };
 
   HTMLStrip = buildPerlPackage rec {
-    name = "HTML-Strip-2.10";
+    pname = "HTML-Strip";
+    version = "2.10";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/K/KI/KILINRAX/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/K/KI/KILINRAX/${pname}-${version}.tar.gz";
       sha256 = "2af30a61f1ecc0bea983043c8078e48380ccb0319388a74483e09aa782f1ccfa";
     };
     propagatedBuildInputs = [ TestException ];
@@ -10181,9 +10188,10 @@ let
   };
 
   LinguaStopWords = buildPerlPackage rec {
-    name = "Lingua-StopWords-0.09";
+    pname = "Lingua-StopWords";
+    version = "0.09";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/C/CR/CREAMYG/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/C/CR/CREAMYG/${pname}-${version}.tar.gz";
       sha256 = "c8734359b82a0838e440bd4739c6c75d7f362ac38d82b1429ee2d41eafcc6d35";
     };
     meta = {
@@ -13469,9 +13477,10 @@ let
   };
 
   NetAsyncWebSocket = buildPerlModule rec {
-    name = "Net-Async-WebSocket-0.13";
+    pname = "Net-Async-WebSocket";
+    version = "0.13";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/P/PE/PEVANS/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/P/PE/PEVANS/${pname}-${version}.tar.gz";
       sha256 = "0dac8342d3c78a2feccabd4667145dd5add4fb8cd18d156d297a1e69dfe11600";
     };
     buildInputs = [ ModuleBuild ];
@@ -14397,9 +14406,10 @@ let
   };
 
   ParallelIterator = buildPerlPackage rec {
-    name = "Parallel-Iterator-1.00";
+    pname = "Parallel-Iterator";
+    version = "1.00";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/A/AN/ANDYA/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/A/AN/ANDYA/${pname}-${version}.tar.gz";
       sha256 = "e8495095cf5746a14e154037b11b0d911da2a32283b77291abb37bf6311345f4";
     };
     meta = {
@@ -16198,9 +16208,10 @@ let
   };
 
   SearchContextGraph = buildPerlPackage rec {
-    name = "Search-ContextGraph-0.15";
+    pname = "Search-ContextGraph";
+    version = "0.15";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/M/MC/MCEGLOWS/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/M/MC/MCEGLOWS/${pname}-${version}.tar.gz";
       sha256 = "d90c107cbffb8b8ce7a770d3b97314ddc7adbf81125ad7f697580d19b2e9f418";
     };
     propagatedBuildInputs = [ MLDBM ];
@@ -16723,9 +16734,10 @@ let
   };
 
   StatisticsContingency = buildPerlPackage rec {
-    name = "Statistics-Contingency-0.09";
+    pname = "Statistics-Contingency";
+    version = "0.09";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/K/KW/KWILLIAMS/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/K/KW/KWILLIAMS/${pname}-${version}.tar.gz";
       sha256 = "4b50621c4974937564ce76b523e9073db50e67de6f5bfae92f088b3ae22975bf";
     };
     buildInputs = [ ModuleBuild ];
@@ -16773,9 +16785,10 @@ let
   };
 
   StatisticsDistributionsAncova = buildPerlPackage rec {
-    name = "Statistics-Distributions-Ancova-0.32.2";
+    pname = "Statistics-Distributions-Ancova";
+    version = "0.32.2";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "8263fd394e46e724691c8e2d043c19c96f1c12c868ea882e810345435365bca3";
     };
     meta = {
@@ -16783,9 +16796,10 @@ let
   };
   
     StatisticsMVABayesianDiscrimination = buildPerlPackage rec {
-    name = "Statistics-MVA-BayesianDiscrimination-0.0.2";
+    pname = "Statistics-MVA-BayesianDiscrimination";
+    version = "0.0.2";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "c0d60c5f055613973cc40e95a75dc9a886cbd51e8277d0fad7ee10158f48349b";
     };
     propagatedBuildInputs = [ MathCephes StatisticsMVA TextSimpleTable ];
@@ -16796,9 +16810,10 @@ let
   };
   
     StatisticsMVAHotellingTwoSample = buildPerlPackage rec {
-    name = "Statistics-MVA-HotellingTwoSample-0.0.2";
+    pname = "Statistics-MVA-HotellingTwoSample";
+    versin = "0.0.2";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "ba648be7268ab18723a27079c5a6f7367aec04b6991b24d239c5733c96d4cea9";
     };
     meta = {
@@ -16828,9 +16843,10 @@ let
   };
 
   StorableCouchDB = buildPerlPackage rec {
-    name = "Storable-CouchDB-0.04";
+    pname = "Storable-CouchDB";
+    version = "0.04";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/M/MR/MRDVT/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/M/MR/MRDVT/${pname}-${version}.tar.gz";
       sha256 = "43b15c33e462a77d180da3bb80f1a3cf0bbf6951cba61d732d831623592d111a";
     };
     propagatedBuildInputs = [ CouchDBClient ];
@@ -17411,9 +17427,10 @@ let
   };
 
   SysadmInstall = buildPerlPackage rec {
-    name = "Sysadm-Install-0.48";
+    pname = "Sysadm-Install";
+    version = "0.48";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/M/MS/MSCHILLI/${name}.tar.gz";
+      url = "mirror://cpan/authors/id/M/MS/MSCHILLI/${pname}-${version}.tar.gz";
       sha256 = "ffdf1c4291dae94650a728e251beba8e6fcd2e5c697bcde0d791b5fb9c6b8c99";
     };
     propagatedBuildInputs = [ FileWhich LWP LogLog4perl TermReadKey ];
