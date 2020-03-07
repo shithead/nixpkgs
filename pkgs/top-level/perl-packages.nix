@@ -98,6 +98,20 @@ let
     };
   };
 
+  AICategorizer = buildPerlPackage rec {
+    name = "AI-Categorizer-0.09";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/K/KW/KWILLIAMS/${name}.tar.gz";
+      sha256 = "24d8adec512e7be76e99c224b60205a164a14d8889557b6876c9b6e8ef8f8590";
+    };
+    buildInputs = [ ModuleBuild ];
+    propagatedBuildInputs = [ ClassContainer LinguaStem ParamsValidate StatisticsContingency ];
+    meta = {
+      description = "Automatic Text Categorization";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+
   ack = buildPerlPackage {
     pname = "ack";
     version = "3.3.1";
@@ -134,6 +148,20 @@ let
       sha256 = "1y92k4nqkscfwpriv8q7c90rjfj85lvwq1k96niv2glk8d37dcf9";
     };
     propagatedBuildInputs = [ AlgorithmDiff ];
+  };
+
+  AlgorithmBaumWelch = buildPerlPackage rec {
+    name = "Algorithm-BaumWelch-v0.0.2";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      sha256 = "78c22a2b93f13017d797f6f6858eb2f5c54c42ffed8741426299aa4d1157dbb9";
+    };
+    buildInputs = [ ModuleBuild ];
+    propagatedBuildInputs = [ MathCephes TextSimpleTable ];
+    meta = {
+      description = "Baum-Welch Algorithm for Hidden Markov Chain parameter estimation";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
   };
 
   AlgorithmC3 = buildPerlPackage {
@@ -222,6 +250,20 @@ let
       sha256 = "1syyqzy462501kn5ma9gl6xbmcahqcn4qpafhsmpz0nd0x2m4l63";
     };
     buildInputs = [ ModuleBuildTiny ];
+  };
+
+  AnyEventSubprocess = buildPerlPackage rec {
+    name = "AnyEvent-Subprocess-1.102912";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/J/JR/JROCKWAY/${name}.tar.gz";
+      sha256 = "a14490710b093644333bdbf7477f4ae58f3bf4553a554bdcde7936ca4c7e53f5";
+    };
+    buildInputs = [ TestException TestSimple ];
+    propagatedBuildInputs = [ AnyEvent EV EventJoin IOTty JSON Moose MooseXClone MooseXRoleParameterized MooseXStrictConstructor MooseXTypes MooseXTypesSignal SubExporter TryTiny namespaceautoclean namespaceclean ];
+    meta = {
+      description = "Flexible, OO, asynchronous process spawning and management";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
   };
 
   asa = buildPerlPackage {
@@ -2913,6 +2955,19 @@ let
     propagatedBuildInputs = [ ModulePluggable ];
     meta = {
       description = "Load configuration from different file formats, transparently";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+
+  ConfigAuto = buildPerlPackage rec {
+    name = "Config-Auto-0.44";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/B/BI/BINGOS/${name}.tar.gz";
+      sha256 = "e960e04df995852aba275cf83ac6f947e44a4139de156858c01f0cec7f7ab53f";
+    };
+    propagatedBuildInputs = [ ConfigIniFiles IOString YAML ];
+    meta = {
+      description = "Magical config file parser";
       license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
     };
   };
@@ -8502,7 +8557,35 @@ let
       license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
     };
   };
+  
+  HTMLSimpleLinkExtor = buildPerlPackage rec {
+    name = "HTML-SimpleLinkExtor-1.272";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/B/BD/BDFOY/${name}.tar.gz";
+      sha256 = "502cf53992edaa0e164d7d3bdb37a745891e7225f79dfaf17a92c635ff4598c7";
+    };
+    buildInputs = [ TestOutput ];
+    propagatedBuildInputs = [ HTMLParser LWP URI ];
+    meta = {
+      homepage = https://github.com/CPAN-Adoptable-Modules/html-simplelinkextor;
+      description = "Extract links from HTML";
+      license = stdenv.lib.licenses.artistic2;
+    };
+  };
 
+  HTMLStrip = buildPerlPackage rec {
+    name = "HTML-Strip-2.10";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/K/KI/KILINRAX/${name}.tar.gz";
+      sha256 = "2af30a61f1ecc0bea983043c8078e48380ccb0319388a74483e09aa782f1ccfa";
+    };
+    propagatedBuildInputs = [ TestException ];
+    meta = {
+      description = "Perl extension for stripping HTML markup from text";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   HTMLTagCloud = buildPerlModule {
     pname = "HTML-TagCloud";
     version = "0.38";
@@ -10097,6 +10180,18 @@ let
      };
   };
 
+  LinguaStopWords = buildPerlPackage rec {
+    name = "Lingua-StopWords-0.09";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/C/CR/CREAMYG/${name}.tar.gz";
+      sha256 = "c8734359b82a0838e440bd4739c6c75d7f362ac38d82b1429ee2d41eafcc6d35";
+    };
+    meta = {
+      description = "Stop words for several languages";
+      license = stdenv.lib.licenses.unknown;
+    };
+  };
+  
   LinguaTranslit = buildPerlPackage {
     pname = "Lingua-Translit";
     version = "0.28";
@@ -13373,6 +13468,20 @@ let
     };
   };
 
+  NetAsyncWebSocket = buildPerlModule rec {
+    name = "Net-Async-WebSocket-0.13";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/P/PE/PEVANS/${name}.tar.gz";
+      sha256 = "0dac8342d3c78a2feccabd4667145dd5add4fb8cd18d156d297a1e69dfe11600";
+    };
+    buildInputs = [ ModuleBuild ];
+    propagatedBuildInputs = [ IOAsync ProtocolWebSocket URI ];
+    meta = {
+      description = "Use WebSockets with C<IO::Async>";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   NetAMQP = buildPerlModule {
     pname = "Net-AMQP";
     version = "0.06";
@@ -14287,6 +14396,18 @@ let
     propagatedBuildInputs = [ Moo ];
   };
 
+  ParallelIterator = buildPerlPackage rec {
+    name = "Parallel-Iterator-1.00";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/A/AN/ANDYA/${name}.tar.gz";
+      sha256 = "e8495095cf5746a14e154037b11b0d911da2a32283b77291abb37bf6311345f4";
+    };
+    meta = {
+      description = "Simple parallel execution";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   ParallelPrefork = buildPerlPackage {
     pname = "Parallel-Prefork";
     version = "0.18";
@@ -16076,6 +16197,18 @@ let
     };
   };
 
+  SearchContextGraph = buildPerlPackage rec {
+    name = "Search-ContextGraph-0.15";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/M/MC/MCEGLOWS/${name}.tar.gz";
+      sha256 = "d90c107cbffb8b8ce7a770d3b97314ddc7adbf81125ad7f697580d19b2e9f418";
+    };
+    propagatedBuildInputs = [ MLDBM ];
+    meta = {
+      license = stdenv.lib.licenses.unknown;
+    };
+  };
+ 
   SearchXapian = buildPerlPackage rec {
     pname = "Search-Xapian";
     version = "1.2.25.2";
@@ -16589,6 +16722,20 @@ let
     };
   };
 
+  StatisticsContingency = buildPerlPackage rec {
+    name = "Statistics-Contingency-0.09";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/K/KW/KWILLIAMS/${name}.tar.gz";
+      sha256 = "4b50621c4974937564ce76b523e9073db50e67de6f5bfae92f088b3ae22975bf";
+    };
+    buildInputs = [ ModuleBuild ];
+    propagatedBuildInputs = [ ParamsValidate ];
+    meta = {
+      description = "Calculate precision, recall, F1, accuracy, etc";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+  
   StatisticsCaseResampling = buildPerlPackage {
     pname = "Statistics-CaseResampling";
     version = "0.15";
@@ -16625,6 +16772,39 @@ let
     };
   };
 
+  StatisticsDistributionsAncova = buildPerlPackage rec {
+    name = "Statistics-Distributions-Ancova-0.32.2";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      sha256 = "8263fd394e46e724691c8e2d043c19c96f1c12c868ea882e810345435365bca3";
+    };
+    meta = {
+    };
+  };
+  
+    StatisticsMVABayesianDiscrimination = buildPerlPackage rec {
+    name = "Statistics-MVA-BayesianDiscrimination-0.0.2";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      sha256 = "c0d60c5f055613973cc40e95a75dc9a886cbd51e8277d0fad7ee10158f48349b";
+    };
+    propagatedBuildInputs = [ MathCephes StatisticsMVA TextSimpleTable ];
+    meta = {
+      description = "Two-Sample Linear Discrimination Analysis with Posterior Probability Calculation";
+      license = stdenv.lib.licenses.unknown;
+    };
+  };
+  
+    StatisticsMVAHotellingTwoSample = buildPerlPackage rec {
+    name = "Statistics-MVA-HotellingTwoSample-0.0.2";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/D/DS/DSTH/${name}.tar.gz";
+      sha256 = "ba648be7268ab18723a27079c5a6f7367aec04b6991b24d239c5733c96d4cea9";
+    };
+    meta = {
+    };
+  };
+  
   StatisticsTTest = buildPerlPackage {
     pname = "Statistics-TTest";
     version = "1.1.0";
@@ -16647,6 +16827,19 @@ let
     };
   };
 
+  StorableCouchDB = buildPerlPackage rec {
+    name = "Storable-CouchDB-0.04";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/M/MR/MRDVT/${name}.tar.gz";
+      sha256 = "43b15c33e462a77d180da3bb80f1a3cf0bbf6951cba61d732d831623592d111a";
+    };
+    propagatedBuildInputs = [ CouchDBClient ];
+    meta = {
+      description = "Persistences for Perl data structures in Apache CouchDB";
+      license = stdenv.lib.licenses.unknown;
+    };
+  };
+  
   StreamBuffered = buildPerlPackage {
     pname = "Stream-Buffered";
     version = "0.03";
@@ -17217,6 +17410,19 @@ let
     };
   };
 
+  SysadmInstall = buildPerlPackage rec {
+    name = "Sysadm-Install-0.48";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/M/MS/MSCHILLI/${name}.tar.gz";
+      sha256 = "ffdf1c4291dae94650a728e251beba8e6fcd2e5c697bcde0d791b5fb9c6b8c99";
+    };
+    propagatedBuildInputs = [ FileWhich LWP LogLog4perl TermReadKey ];
+    meta = {
+      description = "Typical installation tasks for system administrators";
+      license = stdenv.lib.licenses.unknown;
+    };
+  };
+  
   SystemCommand = buildPerlPackage {
     pname = "System-Command";
     version = "1.119";
