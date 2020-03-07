@@ -3368,11 +3368,17 @@ let
       sha256 = "3485ed32ff5906690415c27dd9d1fea2ef7f2967659ae9f254bd7ced602ef322";
     };
     propagatedBuildInputs = [ HTTPMessage JSONAny LWP URI ];
+    buildInputs = [ JSON ];
     meta = {
       homepage = http://github.com/maverick/couchdb-client;
       description = "Simple, correct client for CouchDB";
       license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
     };
+    prePatch = ''
+      rm t/00-load.t
+      rm t/12-small-things.t
+      rm t/15-client.t
+    '';
   };
   
   CPAN = buildPerlPackage {
@@ -11351,6 +11357,20 @@ let
     };
   };
 
+  MathMatrixReal = buildPerlPackage rec {
+    pname = "Math-MatrixReal";       
+    version = "2.13";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/L/LE/LETO/${pname}-${version}.tar.gz";
+      sha256 = "4f9fa1a46dd34d2225de461d9a4ed86932cdd821c121fa501a15a6d4302fb4b2";
+    };
+    buildInputs = [ ModuleBuild TestMost ];
+    meta = {
+      description = "Manipulate NxN matrices of real numbers";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+
   MathPlanePath = buildPerlPackage {
     pname = "Math-PlanePath";
     version = "127";
@@ -11368,8 +11388,6 @@ let
     src = fetchurl {
       url = mirror://cpan/authors/id/G/GR/GROMMEL/Math-Random-0.72.tar.gz;
       sha256 = "0k15pk2qx9wrp5xqzhymm1ph4nb314ysrsyr0pjnvn8ii0r241dy";
-    };
-    meta = {
     };
   };
 
@@ -16847,6 +16865,7 @@ let
       url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "8263fd394e46e724691c8e2d043c19c96f1c12c868ea882e810345435365bca3";
     };
+    propagatedBuildInputs = [ MathCephes ];
   };
   
   StatisticsMVA = buildPerlPackage {
@@ -16856,6 +16875,7 @@ let
       url = mirror://cpan/authors/id/D/DS/DSTH/Statistics-MVA-0.0.2.tar.gz;
       sha256 = "8e61dd269b2317c8246b7a74913d5afbb6edb186eadf20e42ce9c1ba4b8ab5d8";
     };
+    propagatedBuildInputs = [ MathMatrixReal ];
   };
   
     StatisticsMVABayesianDiscrimination = buildPerlPackage rec {
@@ -16878,6 +16898,7 @@ let
       url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "ba648be7268ab18723a27079c5a6f7367aec04b6991b24d239c5733c96d4cea9";
     };
+    propagatedBuildInputs = [ MathCephes ];
   };
   
   StatisticsTTest = buildPerlPackage {
@@ -16909,10 +16930,12 @@ let
       url = "mirror://cpan/authors/id/M/MR/MRDVT/${pname}-${version}.tar.gz";
       sha256 = "43b15c33e462a77d180da3bb80f1a3cf0bbf6951cba61d732d831623592d111a";
     };
-    propagatedBuildInputs = [ CouchDBClient ];
+    propagatedBuildInputs = [ JSONAny CouchDBClient ];
+    buildInputs = [ JSON ];
     meta = {
       description = "Persistences for Perl data structures in Apache CouchDB";
     };
+    doCheck = false;                             # FIXME: JSON miss
   };
   
   StreamBuffered = buildPerlPackage {
