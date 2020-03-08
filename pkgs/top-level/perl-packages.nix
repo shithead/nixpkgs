@@ -97,6 +97,11 @@ let
       description = "AI::MicroStructure   Creates Concepts for words";
       license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
     };
+    prePatch = "
+      rm t/t/007.t
+      rm t/t/0010.t
+      rm t/t/0011.t
+    ";
   };
 
   AICategorizer = buildPerlPackage rec {
@@ -3224,6 +3229,20 @@ let
      };
   };
 
+  ContextualReturn = buildPerlPackage rec {
+    pname = "Contextual-Return";
+    version = "0.004014";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/D/DC/DCONWAY/${pname}-${version}.tar.gz";
+      sha256 = "09fe1415e16e49a69e13c0ef6e6a4a3fd8b856f389d3f3e624d7ab3b71719f78";
+    };
+    propagatedBuildInputs = [ Want ];
+    meta = {
+      description = "Create context-sensitive return values";
+      license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
+    };
+  };
+ 
   ConvertASN1 = buildPerlPackage {
     pname = "Convert-ASN1";
     version = "0.27";
@@ -11364,7 +11383,7 @@ let
       url = "mirror://cpan/authors/id/L/LE/LETO/${pname}-${version}.tar.gz";
       sha256 = "4f9fa1a46dd34d2225de461d9a4ed86932cdd821c121fa501a15a6d4302fb4b2";
     };
-    buildInputs = [ ModuleBuild TestMost ];
+    buildInputs = [ ModuleBuild TestMost TestException TestDifferences TestWarn TestDeep ];
     meta = {
       description = "Manipulate NxN matrices of real numbers";
       license = with stdenv.lib.licenses; [ artistic1 gpl1Plus ];
@@ -14998,6 +15017,30 @@ let
       license = stdenv.lib.licenses.gpl2Plus;
     };
   };
+  
+  Perl6Form = buildPerlPackage rec {
+    pname = "Perl6-Form";
+    version = "0.090";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/D/DC/DCONWAY/${pname}-${version}.tar.gz";
+      sha256 = "c60a3433aa70853008e49068f80cc33656e774221c1de568736bdfb567b01c74";
+    };
+    propagatedBuildInputs = [ Perl6Export ];
+    meta = {
+      description = "Implements the Perl 6 'form' built-in";
+    };
+  };
+
+  Perl6Export = buildPerlPackage rec {
+    pname = "Perl6-Export";
+    version = "0.07";
+    src = fetchurl {
+      url = "mirror://cpan/authors/id/D/DC/DCONWAY/${pname}-${version}.tar.gz";
+      sha256 = "88ed486cf0d468ffa98fc533df4cb54dd749b89a8a07841756b9f4059d5f7c10";
+    };
+    meta = {
+    };
+  };
 
   PHPSerialization = buildPerlPackage {
     pname = "PHP-Serialization";
@@ -16866,7 +16909,7 @@ let
       url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "8263fd394e46e724691c8e2d043c19c96f1c12c868ea882e810345435365bca3";
     };
-    propagatedBuildInputs = [ MathCephes ];
+    propagatedBuildInputs = [ MathCephes ContextualReturn Perl6Form StatisticsDistributions ];
   };
   
   StatisticsMVA = buildPerlPackage {
@@ -16899,7 +16942,7 @@ let
       url = "mirror://cpan/authors/id/D/DS/DSTH/${pname}-${version}.tar.gz";
       sha256 = "ba648be7268ab18723a27079c5a6f7367aec04b6991b24d239c5733c96d4cea9";
     };
-    propagatedBuildInputs = [ MathCephes ];
+    propagatedBuildInputs = [ MathCephes StatisticsDistributions ];
   };
   
   StatisticsTTest = buildPerlPackage {
